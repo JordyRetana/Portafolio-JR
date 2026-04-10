@@ -99,6 +99,20 @@
   }
 }
 
+
+.hero-particles-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(255,255,255,0.18) 0 2px, transparent 2px),
+    radial-gradient(circle at 78% 22%, rgba(255,255,255,0.14) 0 1.8px, transparent 1.8px),
+    radial-gradient(circle at 32% 72%, rgba(255,255,255,0.12) 0 1.6px, transparent 1.6px),
+    radial-gradient(circle at 68% 78%, rgba(255,255,255,0.12) 0 1.8px, transparent 1.8px);
+  animation: heroParticles 22s linear infinite;
+  opacity: 0.3;
+}
+
 .hero-grid {
   position: relative;
   z-index: 1;
