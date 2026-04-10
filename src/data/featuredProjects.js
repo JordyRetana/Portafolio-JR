@@ -1,8 +1,10 @@
+const base = import.meta.env.BASE_URL
+
 export const featuredProjects = [
   {
     id: 1,
     key: 'tutoring',
-    image: '/assets/images/Tutor/Tutor-JR.png',
+    image: `${base}assets/images/Tutor/Tutor-JR.png`,
     alt: 'Tutorías JR Platform',
     badgeType: 'active',
     tech: ['HTML', 'CSS', 'JavaScript'],
@@ -13,7 +15,7 @@ export const featuredProjects = [
   {
     id: 2,
     key: 'kirby',
-    image: '/assets/images/Kirby/Kirby.png',
+    image: `${base}assets/images/Kirby/Kirby.png`,
     alt: 'Kirby Adventure Game',
     badgeType: 'game',
     tech: ['Canvas', 'JavaScript', 'Sprites'],
@@ -24,12 +26,12 @@ export const featuredProjects = [
   {
     id: 3,
     key: 'pool',
-    image: '/assets/images/Pool/Pool.png',
+    image: `${base}assets/images/Pool/Pool.png`,
     alt: 'Pool Game',
     badgeType: 'physics',
     tech: ['Physics', 'Canvas', 'Particles'],
     statValues: ['120', 'Pro', 'FX', 'Aim'],
-    codeUrl: 'https://github.com/JordyRetana',
+    codeUrl: 'https://github.com/JordyRetana/Pool',
     liveUrl: '#'
   }
 ]
