@@ -1,22 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import LanguageToggle from '../common/LanguageToggle'
-import ThemeToggle from '../common/ThemeToggle'
 import { useLanguage } from '../../i18n/LanguageContext'
+import { useTheme } from '../../theme/ThemeContext'
 
 function Navbar() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
   const location = useLocation()
+
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  useEffect(() => setIsOpen(false), [location.pathname])
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname])
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 16)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {
@@ -26,18 +34,39 @@ function Navbar() {
     }
   }, [isOpen])
 
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev)
+  }
+
+  const closeMenu = () => {
+    setIsOpen(false)
+  }
+
+  const base = import.meta.env.BASE_URL
+
+  const cvHref = useMemo(() => {
+    return language === 'en'
+      ? `${base}assets/docs/Ingles/Jordy%20Retana%20Mendez%20CV.pdf`
+      : `${base}assets/docs/Español/Jordy%20Retana%20CV.pdf`
+  }, [language, base])
+
+  const cvDownloadName =
+    language === 'en'
+      ? 'Jordy-Retana-Mendez-CV-EN.pdf'
+      : 'Jordy-Retana-CV-ES.pdf'
+
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar">
-        <Link to="/" className="logo logo-mark">
+        <Link to="/" className="logo logo-mark" onClick={closeMenu}>
           <span className="logo-dot"></span>
-          <span className="logo-text">{t('nav.logo')}</span>
+          <span className="logo-text">JR</span>
         </Link>
 
         <button
           type="button"
           className={`menu-toggle ${isOpen ? 'active' : ''}`}
-          onClick={() => setIsOpen((v) => !v)}
+          onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -51,25 +80,55 @@ function Navbar() {
             <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
               {t('nav.home')}
             </NavLink>
-            <NavLink to="/proyectos" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+
+            <NavLink
+              to="/proyectos"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            >
               {t('nav.projects')}
             </NavLink>
-            <NavLink to="/experiencia" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+
+            <NavLink
+              to="/experiencia"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            >
               {t('nav.experience')}
             </NavLink>
-            <NavLink to="/habilidades" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+
+            <NavLink
+              to="/habilidades"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            >
               {t('nav.skills')}
             </NavLink>
-            <NavLink to="/contacto" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+
+            <NavLink
+              to="/contacto"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            >
               {t('nav.contact')}
             </NavLink>
           </nav>
 
           <div className="nav-actions">
-            <a href="/assets/docs/CV-Jordy-Retana.pdf" className="btn btn-secondary nav-cv-btn" target="_blank" rel="noreferrer">
-              {t('nav.download_cv')}
+            <a
+              href={cvHref}
+              download={cvDownloadName}
+              className="btn btn-secondary nav-cv-btn"
+            >
+              CV
             </a>
-            <ThemeToggle />
+
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            >
+              <span>{theme === 'dark' ? '☀️' : '🌙'}</span>
+            </button>
+
             <LanguageToggle />
           </div>
         </div>
