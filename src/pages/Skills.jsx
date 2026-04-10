@@ -109,12 +109,12 @@ function Skills() {
                 </div>
               </div>
 
-              <div className="skills-stack-list stagger-children">
+              <div className="skills-support-grid stagger-children">
                 {data.items.map((skill) => (
-                  <div className="skills-stack-item skills-stack-item-support" key={skill.name}>
-                    <div>
+                  <div className="skills-support-card" key={skill.name}>
+                    <div className="skills-support-head">
                       <strong>{skill.name}</strong>
-                      <small>{skill.level}% confidence</small>
+                      <span>{skill.level}%</span>
                     </div>
                     <div className="skills-inline-track">
                       <div className="skills-inline-fill support-fill" style={{ width: `${skill.level}%` }}></div>

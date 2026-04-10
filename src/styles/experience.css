@@ -198,3 +198,14 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 640px) {
+  .experience-track { left: 16px; }
+  .experience-node,
+  .experience-node.left,
+  .experience-node.right { width: calc(100% - 2.2rem); }
+  .experience-card-shell { border-radius: 1.25rem; }
+  .experience-top h2 { font-size: 1.1rem; }
+  .experience-top h3 { font-size: .9rem; }
+  .experience-achievement { padding: .72rem; }
+}
