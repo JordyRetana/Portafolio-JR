@@ -100,7 +100,7 @@ function Skills() {
               </div>
             </article>
 
-            <article className="skills-panel skills-panel-data reveal-up delay-3">
+            <article className="skills-panel skills-panel-support reveal-up delay-3">
               <div className="skills-panel-header">
                 <div>
                   <span className="skills-panel-kicker">04 · Support</span>
@@ -112,13 +112,14 @@ function Skills() {
               <div className="skills-support-grid stagger-children">
                 {data.items.map((skill) => (
                   <div className="skills-support-card" key={skill.name}>
-                    <div className="skills-support-head">
+                    <div className="skills-support-card-head">
                       <strong>{skill.name}</strong>
                       <span>{skill.level}%</span>
                     </div>
-                    <div className="skills-inline-track">
-                      <div className="skills-inline-fill support-fill" style={{ width: `${skill.level}%` }}></div>
+                    <div className="skills-support-track">
+                      <div className="skills-support-fill" style={{ width: `${skill.level}%` }}></div>
                     </div>
+                    <small>{skill.level >= 90 ? 'Workflow ready' : skill.level >= 84 ? 'Production support' : 'Useful support layer'}</small>
                   </div>
                 ))}
               </div>
