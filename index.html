@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portafolio-react</title>
+    <script>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          const theme = stored || 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      })();
+    </script>
+      <style>
+      html, body { margin: 0; padding: 0; background: #060816; color: #f8fafc; }
+      #root { min-height: 100vh; background: #060816; }
+      .hero-title, .hero-title .title-line { color: #f8fafc !important; }
+    </style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
