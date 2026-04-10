@@ -1,5 +1,5 @@
 .projects-page {
-  padding: 0 0 4.5rem;
+  padding: 0 0 4rem;
 }
 
 .projects-page-hero {
@@ -71,6 +71,8 @@
   margin: 0 auto;
   border-radius: 1.35rem;
   background: color-mix(in srgb, var(--surface) 96%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
 }
 
 .projects-page-card.compact-card:hover {
@@ -296,11 +298,6 @@
   color: var(--muted);
 }
 
-html[data-theme='light'] .projects-page,
-html[data-theme='light'] .projects-page * {
-  color-scheme: light;
-}
-
 html[data-theme='light'] .projects-page-card.compact-card,
 html[data-theme='light'] .projects-empty-state {
   background: rgba(255, 255, 255, 0.94);
@@ -372,16 +369,56 @@ html[data-theme='light'] .project-placeholder-content {
     padding-bottom: 3rem;
   }
 
+  .projects-page-grid-section {
+    padding-top: 1.2rem;
+  }
+
+  .projects-page-grid.compact-grid {
+    gap: 1rem;
+  }
+
   .projects-page-content.compact-content {
     padding: 0.95rem;
+    gap: 0.8rem;
   }
 
   .projects-page-heading.compact-heading h2 {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
   }
 
   .projects-page-heading.compact-heading p {
     font-size: 0.88rem;
+    line-height: 1.52;
+  }
+
+  .projects-page-image-wrap.compact-media {
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+  }
+
+  .projects-card-badges.compact-badges {
+    inset: 0.7rem 0.7rem auto 0.7rem;
+    gap: 0.45rem;
+  }
+
+  .project-category-badge,
+  .project-index-badge,
+  .project-metric-pill,
+  .project-upcoming-badge {
+    min-height: 28px;
+    padding: 0.34rem 0.58rem;
+    font-size: 0.68rem;
+  }
+
+  .project-metrics-row,
+  .projects-page-tech.compact-tech {
+    gap: 0.42rem;
+  }
+
+  .projects-page-tech.compact-tech span {
+    padding: 0.34rem 0.56rem;
+    font-size: 0.7rem;
   }
 
   .projects-page-actions.compact-actions {
@@ -390,15 +427,5 @@ html[data-theme='light'] .project-placeholder-content {
 
   .projects-page-actions.compact-actions .btn {
     width: 100%;
-  }
-
-  .projects-card-badges.compact-badges {
-    flex-wrap: wrap;
-  }
-
-  .projects-page-image-wrap.compact-media {
-    height: 230px;
-    min-height: 230px;
-    max-height: 230px;
   }
 }
