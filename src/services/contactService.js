@@ -1,5 +1,7 @@
+import { BACKEND_BASE_URL } from './backendWarmup'
+
 export const sendContactMessage = async (payload) => {
-  const response = await fetch('https://portafolio-jr-backend.onrender.com/api/contact', {
+  const response = await fetch(`${BACKEND_BASE_URL}/api/contact`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -7,5 +9,20 @@ export const sendContactMessage = async (payload) => {
     body: JSON.stringify(payload)
   })
 
-  return response.json()
+  let data = null
+
+  try {
+    data = await response.json()
+  } catch {
+    data = null
+  }
+
+  if (!response.ok) {
+    return {
+      ok: false,
+      message: data?.message || 'Request failed'
+    }
+  }
+
+  return data || { ok: true }
 }

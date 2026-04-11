@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import LanguageToggle from '../common/LanguageToggle'
 import { useLanguage } from '../../i18n/LanguageContext'
 import { useTheme } from '../../theme/ThemeContext'
+import { warmupBackend } from '../../services/backendWarmup'
 
 function Navbar() {
   const { t, language } = useLanguage()
@@ -55,6 +56,10 @@ function Navbar() {
       ? 'Jordy-Retana-Mendez-CV-EN.pdf'
       : 'Jordy-Retana-CV-ES.pdf'
 
+  const handleWarmup = () => {
+    warmupBackend()
+  }
+
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar">
@@ -77,7 +82,10 @@ function Navbar() {
 
         <div className={`nav-panel ${isOpen ? 'open' : ''}`}>
           <nav className="nav-menu">
-            <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+            >
               {t('nav.home')}
             </NavLink>
 
@@ -104,6 +112,9 @@ function Navbar() {
 
             <NavLink
               to="/contacto"
+              onMouseEnter={handleWarmup}
+              onFocus={handleWarmup}
+              onTouchStart={handleWarmup}
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               {t('nav.contact')}
