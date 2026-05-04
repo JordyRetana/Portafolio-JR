@@ -15,3 +15,16 @@ export const notifyVisitToTelegram = async () => {
     console.error('Error enviando alerta a Telegram:', error)
   }
 }
+
+export const scheduleVisitNotification = () => {
+  const notify = () => {
+    notifyVisitToTelegram()
+  }
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(notify, { timeout: 4000 })
+    return
+  }
+
+  window.setTimeout(notify, 1600)
+}

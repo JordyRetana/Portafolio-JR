@@ -1,21 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import LanguageToggle from '../common/LanguageToggle'
 import { useLanguage } from '../../i18n/LanguageContext'
 import { useTheme } from '../../theme/ThemeContext'
-import { warmupBackend } from '../../services/backendWarmup'
+import { scheduleBackendWarmup, warmupBackend } from '../../services/backendWarmup'
 
 function Navbar() {
   const { t, language } = useLanguage()
   const { theme, toggleTheme } = useTheme()
-  const location = useLocation()
-
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    setIsOpen(false)
-  }, [location.pathname])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,9 +17,13 @@ function Navbar() {
     }
 
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    scheduleBackendWarmup()
   }, [])
 
   useEffect(() => {
@@ -84,6 +82,7 @@ function Navbar() {
           <nav className="nav-menu">
             <NavLink
               to="/"
+              onClick={closeMenu}
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               {t('nav.home')}
@@ -91,6 +90,7 @@ function Navbar() {
 
             <NavLink
               to="/proyectos"
+              onClick={closeMenu}
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               {t('nav.projects')}
@@ -98,6 +98,7 @@ function Navbar() {
 
             <NavLink
               to="/experiencia"
+              onClick={closeMenu}
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               {t('nav.experience')}
@@ -105,6 +106,7 @@ function Navbar() {
 
             <NavLink
               to="/habilidades"
+              onClick={closeMenu}
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               {t('nav.skills')}
@@ -112,6 +114,7 @@ function Navbar() {
 
             <NavLink
               to="/contacto"
+              onClick={closeMenu}
               onMouseEnter={handleWarmup}
               onFocus={handleWarmup}
               onTouchStart={handleWarmup}

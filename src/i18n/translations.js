@@ -77,6 +77,10 @@ const translations = {
       section_title: 'Proyectos destacados',
       section_description: 'Una selección de proyectos que representan mejor el perfil y la evolución técnica.',
       projects: {
+        pulseops: { title: 'PulseOps IncidentHub', description: 'Command center para gestion de incidentes criticos con timeline operativo, severidad, impacto y metricas MTTR.', badge: 'Ops', primaryActionLabel: 'Ver', secondaryActionLabel: 'Code', features: ['PHP MVC', 'MySQL', 'Timeline operativo', 'Metricas MTTR'], stats: { users: 'Ops', satisfaction: 'MTTR', uptime: 'MVC' } },
+        fieldlens: { title: 'FieldLens ResearchHub', description: 'Plataforma para transformar entrevistas e investigacion UX en insights priorizados para decisiones de producto.', badge: 'Research', primaryActionLabel: 'Ver', secondaryActionLabel: 'Code', features: ['UX Research', 'Opportunity score', 'MVC', 'MySQL'], stats: { users: 'UX', satisfaction: 'Score', uptime: 'Data' } },
+        ecotrack: { title: 'EcoTrack Analytics', description: 'Dashboard ambiental con KPIs, grafico canvas, proveedores, recomendaciones y exportacion CSV.', badge: 'Analytics', primaryActionLabel: 'Demo', secondaryActionLabel: 'Code', features: ['Dashboard', 'Canvas', 'CSV', 'KPIs'], stats: { users: 'CO2', satisfaction: 'CSV', uptime: 'KPIs' } },
+        biblioteca: { title: 'BibliotecaApp', description: 'Sistema bibliotecario con arquitectura limpia, autenticacion segura, sincronizacion local-nube y generacion de codigos QR.', badge: 'Backend', primaryActionLabel: 'Ver', secondaryActionLabel: 'Code', features: ['.NET 8', 'PostgreSQL', 'JWT', 'Sincronizacion'], stats: { users: 'API', satisfaction: 'Sync', uptime: 'QR' } },
         tutoring: {
           title: 'Tutorías JR Platform',
           description: 'Plataforma educativa con flujo de registro, vistas informativas y experiencia centrada en el usuario.',
@@ -85,6 +89,15 @@ const translations = {
           secondaryActionLabel: 'Code',
           features: ['Experiencia educativa', 'Diseño completo', 'Flujo informativo', 'UI moderna'],
           stats: { users: 'Views', satisfaction: 'UX', uptime: 'Flow' }
+        },
+        mano: {
+          title: 'Reconocimiento de Mano',
+          description: 'Proyecto de visiÃ³n por computadora con detecciÃ³n en tiempo real usando Python, OpenCV y MediaPipe.',
+          badge: 'AI Vision',
+          primaryActionLabel: 'Ver',
+          secondaryActionLabel: 'Code',
+          features: ['VisiÃ³n artificial', 'Tracking en tiempo real', 'Python', 'MediaPipe'],
+          stats: { users: 'AI', satisfaction: 'VisiÃ³n', uptime: 'Realtime' }
         },
         kirby: {
           title: 'Kirby Adventure Game',
@@ -110,10 +123,16 @@ const translations = {
       badge: 'PORTAFOLIO',
       title: 'Galería de proyectos',
       subtitle: 'Selección más fina de proyectos reales, con mejor presentación visual y foco en las piezas que mejor representan el perfil.',
-      filters: { all: 'Todos', web: 'Web', ai: 'IA / Visión', game: 'Juegos' },
+      filters: { all: 'Todos', web: 'Web', backend: 'Backend', mobile: 'Mobile', ai: 'IA / Vision', game: 'Juegos' },
       actions: { demo: 'Ver demo', code: 'Ver código' },
       empty: 'No hay proyectos para esta categoría.',
       items: {
+        'biblioteca-app': { title: 'BibliotecaApp', description: 'Sistema de gestion bibliotecaria en .NET 8 con arquitectura limpia, PostgreSQL, JWT, sincronizacion local-nube y balanceo con NGINX.' },
+        'pulseops-incidenthub': { title: 'PulseOps IncidentHub', description: 'Command center PHP MVC para registrar incidentes criticos, severidad, impacto, timeline operativo y metricas como MTTR.' },
+        'fieldlens-researchhub': { title: 'FieldLens ResearchHub', description: 'Plataforma PHP MVC para convertir entrevistas e investigacion UX en insights priorizados con scoring de oportunidad.' },
+        'ecotrack-analytics': { title: 'EcoTrack Analytics', description: 'Dashboard ejecutivo para monitorear huella ambiental, KPIs de sostenibilidad, proveedores, recomendaciones y exportacion CSV.' },
+        'reservapro-studio': { title: 'ReservaPro Studio', description: 'Herramienta comercial para administrar reservas, agenda, servicios, clientes VIP, ocupacion e ingresos diarios.' },
+        'negocio-finanzas': { title: 'Negocio Finanzas', description: 'Aplicacion Android en Kotlin y Jetpack Compose para registrar ventas, gastos, negocios separados y balances offline con Room.' },
         'tutorias-jr': { title: 'Tutorías JR', description: 'Plataforma educativa con reservas, experiencia moderna y estructura clara para estudiantes y tutores.' },
         mano: { title: 'Reconocimiento de mano', description: 'Proyecto de visión por computadora con Python, OpenCV y MediaPipe para detección y seguimiento de mano en tiempo real.' },
         cv: { title: 'Proyecto CV', description: 'Experiencia centrada en CV, búsqueda laboral y presentación de perfil profesional. Próximamente.' },
@@ -123,8 +142,8 @@ const translations = {
         snake: { title: 'Snake Classic', description: 'Versión modernizada del clásico Snake con controles responsivos y una interfaz más limpia.' },
         'teclado-virtual': { title: 'Teclado Virtual', description: 'Proyecto interactivo enfocado en eventos de teclado, accesibilidad y respuesta visual.' },
         'ruleta-casino': { title: 'Ruleta Casino', description: 'Juego de probabilidad y estadísticas con animación, canvas y feedback visual.' },
-        sc502: { title: 'SC502 1C2025', description: 'Proyecto universitario completo con estructura web, algoritmos y trabajo académico aplicado.' },
-        'cliente-servidor': { title: 'Cliente-Servidor', description: 'Trabajo académico alrededor de interacción, flujo de datos y conceptos de networking.' },
+        sc502: { title: 'SC502 1C2025', description: 'Coleccion organizada de aplicaciones web, mini proyectos y laboratorios con PHP, MySQL, JavaScript, autenticacion y gestion de tareas.' },
+        'cliente-servidor': { title: 'Cliente-Servidor Java', description: 'Sistema de ventas en Java con JDBC, MySQL, patron DAO, clientes, productos, ventas y reportes PDF.' },
         'memory-game': { title: 'Memory Game', description: 'Juego de memoria con lógica simple, feedback visual y enfoque en interacción clásica.' },
         kirby: { title: 'Kirby Adventure', description: 'Juego de plataformas 2D con colisiones, sprites, enemigos y estructura arcade.' }
       }
@@ -268,7 +287,12 @@ const translations = {
     portfolio: {
       section_subtitle: 'FEATURED', section_title: 'Featured projects', section_description: 'A curated set of projects that best represent the profile and technical growth.',
       projects: {
+        biblioteca: { title: 'BibliotecaApp', description: 'Library system with clean architecture, secure authentication, local-cloud synchronization and QR code generation.', badge: 'Backend', primaryActionLabel: 'View', secondaryActionLabel: 'Code', features: ['.NET 8', 'PostgreSQL', 'JWT', 'Synchronization'], stats: { users: 'API', satisfaction: 'Sync', uptime: 'QR' } },
+        pulseops: { title: 'PulseOps IncidentHub', description: 'Command center for critical incident management with operational timeline, severity, impact and MTTR metrics.', badge: 'Ops', primaryActionLabel: 'View', secondaryActionLabel: 'Code', features: ['PHP MVC', 'MySQL', 'Operational timeline', 'MTTR metrics'], stats: { users: 'Ops', satisfaction: 'MTTR', uptime: 'MVC' } },
+        fieldlens: { title: 'FieldLens ResearchHub', description: 'Platform for turning UX interviews and research evidence into prioritized product insights.', badge: 'Research', primaryActionLabel: 'View', secondaryActionLabel: 'Code', features: ['UX Research', 'Opportunity score', 'MVC', 'MySQL'], stats: { users: 'UX', satisfaction: 'Score', uptime: 'Data' } },
+        ecotrack: { title: 'EcoTrack Analytics', description: 'Environmental dashboard with KPIs, canvas chart, suppliers, recommendations and CSV export.', badge: 'Analytics', primaryActionLabel: 'Demo', secondaryActionLabel: 'Code', features: ['Dashboard', 'Canvas', 'CSV', 'KPIs'], stats: { users: 'CO2', satisfaction: 'CSV', uptime: 'KPIs' } },
         tutoring: { title: 'Tutorías JR Platform', description: 'Educational platform with informative flow, polished views and modern user-oriented design.', badge: 'Featured', primaryActionLabel: 'Demo', secondaryActionLabel: 'Code', features: ['Educational UX', 'Complete design', 'Informative flow', 'Modern UI'], stats: { users: 'Views', satisfaction: 'UX', uptime: 'Flow' } },
+        mano: { title: 'Hand Recognition', description: 'Computer vision project with real-time detection using Python, OpenCV and MediaPipe.', badge: 'AI Vision', primaryActionLabel: 'View', secondaryActionLabel: 'Code', features: ['Computer vision', 'Real-time tracking', 'Python', 'MediaPipe'], stats: { users: 'AI', satisfaction: 'Vision', uptime: 'Realtime' } },
         kirby: { title: 'Kirby Adventure Game', description: '2D platform game with physics, collisions, enemies and arcade mechanics.', badge: 'Game', primaryActionLabel: 'Play', secondaryActionLabel: 'Code', features: ['Canvas 2D', 'Collisions', 'Sprites', 'Gameplay'], stats: { fps: 'FPS', levels: 'Levels', enemies: 'Enemies', powers: 'Powers' } },
         pool: { title: 'Pool Game', description: 'Visual simulation project with physics, rebounds and trajectory calculations.', badge: 'Physics', primaryActionLabel: 'View', secondaryActionLabel: 'Code', features: ['Physics', 'Particles', 'Canvas', 'Precision'], stats: { fps: 'FPS', levels: 'Mode', enemies: 'Shots', powers: 'FX' } }
       }
@@ -277,10 +301,16 @@ const translations = {
       badge: 'PORTFOLIO',
       title: 'Projects gallery',
       subtitle: 'A more refined selection of real projects, presented with cleaner visuals and a stronger focus on the work that best represents the profile.',
-      filters: { all: 'All', web: 'Web', ai: 'AI / Vision', game: 'Games' },
+      filters: { all: 'All', web: 'Web', backend: 'Backend', mobile: 'Mobile', ai: 'AI / Vision', game: 'Games' },
       actions: { demo: 'Live demo', code: 'Source code' },
       empty: 'There are no projects in this category.',
       items: {
+        'biblioteca-app': { title: 'BibliotecaApp', description: 'Library management system built with .NET 8, clean architecture, PostgreSQL, JWT, local-cloud sync and NGINX load balancing.' },
+        'pulseops-incidenthub': { title: 'PulseOps IncidentHub', description: 'PHP MVC command center for critical incidents, severity, impact, operational timeline and MTTR-focused metrics.' },
+        'fieldlens-researchhub': { title: 'FieldLens ResearchHub', description: 'PHP MVC platform that turns UX interviews and research evidence into prioritized insights with opportunity scoring.' },
+        'ecotrack-analytics': { title: 'EcoTrack Analytics', description: 'Executive dashboard for environmental footprint, sustainability KPIs, suppliers, recommendations and CSV exports.' },
+        'reservapro-studio': { title: 'ReservaPro Studio', description: 'Business tool for managing bookings, schedule, services, VIP customers, occupancy and daily revenue.' },
+        'negocio-finanzas': { title: 'Negocio Finance', description: 'Android app built with Kotlin and Jetpack Compose to track sales, expenses, separate businesses and offline Room balances.' },
         'tutorias-jr': { title: 'Tutorías JR', description: 'Educational platform with bookings, a modern experience, and a clear structure for students and tutors.' },
         mano: { title: 'Hand Recognition', description: 'Computer vision project with Python, OpenCV, and MediaPipe for real-time hand detection and tracking.' },
         cv: { title: 'CV Project', description: 'Experience focused on CV presentation, job search, and professional profile display. Coming soon.' },
@@ -290,8 +320,8 @@ const translations = {
         snake: { title: 'Snake Classic', description: 'Modern take on the classic Snake game with responsive controls and a cleaner interface.' },
         'teclado-virtual': { title: 'Virtual Keyboard', description: 'Interactive project focused on keyboard events, accessibility, and visual response.' },
         'ruleta-casino': { title: 'Casino Roulette', description: 'Probability and statistics game with animation, canvas, and visual feedback.' },
-        sc502: { title: 'SC502 1C2025', description: 'Complete university project with web structure, algorithms, and applied academic work.' },
-        'cliente-servidor': { title: 'Client-Server', description: 'Academic work around interaction, data flow, and networking concepts.' },
+        sc502: { title: 'SC502 1C2025', description: 'Organized collection of web apps, mini projects and labs using PHP, MySQL, JavaScript, authentication and task management.' },
+        'cliente-servidor': { title: 'Java Sales System', description: 'Java sales management system with JDBC, MySQL, DAO pattern, customers, products, sales and PDF reporting.' },
         'memory-game': { title: 'Memory Game', description: 'Memory game with simple logic, visual feedback, and classic interaction focus.' },
         kirby: { title: 'Kirby Adventure', description: '2D platform game with collisions, sprites, enemies, and arcade structure.' }
       }

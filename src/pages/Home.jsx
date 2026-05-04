@@ -3,11 +3,11 @@ import Hero from '../components/home/Hero'
 import HomeOverview from '../components/home/HomeOverview'
 import Technologies from '../components/home/Technologies'
 import FeaturedProjects from '../components/home/FeaturedProjects'
-import { notifyVisitToTelegram } from '../services/telegramService'
+import { scheduleVisitNotification } from '../services/telegramService'
 
 function Home() {
   useEffect(() => {
-    notifyVisitToTelegram()
+    scheduleVisitNotification()
   }, [])
 
   return (

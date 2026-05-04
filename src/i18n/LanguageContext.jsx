@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import translations from './translations'
 
 const LanguageContext = createContext()
@@ -17,14 +17,14 @@ export function LanguageProvider({ children }) {
     document.documentElement.lang = language
   }, [language])
 
-  const toggleLanguage = () => {
+  const toggleLanguage = useCallback(() => {
     setLanguage((prev) => (prev === 'es' ? 'en' : 'es'))
-  }
+  }, [])
 
-  const t = (path) => {
+  const t = useCallback((path) => {
     const value = getNestedValue(translations[language], path)
     return value ?? path
-  }
+  }, [language])
 
   const value = useMemo(
     () => ({
@@ -33,7 +33,7 @@ export function LanguageProvider({ children }) {
       toggleLanguage,
       t
     }),
-    [language]
+    [language, t, toggleLanguage]
   )
 
   return (

@@ -42,6 +42,58 @@ html[data-theme='light'] body {
 html[data-theme='light'] .btn-secondary {
   background: rgba(255,255,255,0.84);
 }
+
+.route-loading {
+  min-height: calc(100vh - 140px);
+}
+
+.btn,
+.stat-card,
+.contact-stat,
+.project-card,
+.projects-page-card,
+.tech-category-card,
+.skills-panel,
+.skills-tools-card,
+.experience-card-shell,
+.projects-filter-btn {
+  will-change: transform;
+}
+
+.stat-card,
+.contact-stat,
+.skills-card,
+.skills-tools-card,
+.contact-card,
+.faq-item,
+.projects-page-card,
+.project-card,
+.tech-category-card,
+.experience-card,
+.experience-card-shell,
+.social-card,
+.home-overview-card,
+.not-found-shell {
+  contain: paint;
+}
+
+.btn:hover,
+.projects-filter-btn:hover {
+  transform: translate3d(0, -1px, 0);
+}
+
+@supports (content-visibility: auto) {
+  .home-overview-section,
+  .technologies-section,
+  .projects-section,
+  .projects-page-grid-section,
+  .skills-section,
+  .skills-tools-section,
+  .experience-timeline-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+}
 @media (max-width: 980px) {
   .menu-toggle {
     display: inline-flex;

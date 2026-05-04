@@ -2,6 +2,76 @@ const base = import.meta.env.BASE_URL
 
 export const projects = [
   {
+    id: 101,
+    key: 'biblioteca-app',
+    category: 'backend',
+    image: `${base}assets/images/BibliotecaApp/portfolio-cover.jpg`,
+    tech: ['.NET 8', 'PostgreSQL', 'JWT', 'NGINX'],
+    codeUrl: 'https://github.com/JordyRetana/BibliotecaApp',
+    liveUrl: '#',
+    featured: true,
+    priority: 112,
+    metrics: ['Clean Architecture', 'Sync', 'Security']
+  },
+  {
+    id: 102,
+    key: 'pulseops-incidenthub',
+    category: 'web',
+    image: `${base}assets/images/PulseOps/portfolio-cover.jpg`,
+    tech: ['PHP 8', 'MySQL', 'MVC', 'PDO'],
+    codeUrl: 'https://github.com/JordyRetana/PulseOps_IncidentHub',
+    liveUrl: '#',
+    featured: true,
+    priority: 108,
+    metrics: ['Incident Ops', 'MTTR', 'Command Center']
+  },
+  {
+    id: 103,
+    key: 'fieldlens-researchhub',
+    category: 'web',
+    image: `${base}assets/images/FieldLens/portfolio-cover.jpg`,
+    tech: ['PHP 8', 'MySQL', 'MVC', 'UX Research'],
+    codeUrl: 'https://github.com/JordyRetana/FieldLens_ResearchHub',
+    liveUrl: '#',
+    featured: true,
+    priority: 106,
+    metrics: ['Research Ops', 'Insights', 'Scoring']
+  },
+  {
+    id: 104,
+    key: 'ecotrack-analytics',
+    category: 'web',
+    image: `${base}assets/images/EcoTrack/portfolio-cover.jpg`,
+    tech: ['JavaScript', 'Canvas', 'CSV Export', 'Dashboard'],
+    codeUrl: 'https://github.com/JordyRetana/EcoTrack_Analytics',
+    liveUrl: 'https://jordyretana.github.io/EcoTrack_Analytics/',
+    featured: true,
+    priority: 104,
+    metrics: ['Analytics', 'Sustainability', 'CSV']
+  },
+  {
+    id: 105,
+    key: 'reservapro-studio',
+    category: 'web',
+    image: `${base}assets/images/ReservaPro/portfolio-cover.jpg`,
+    tech: ['JavaScript', 'LocalStorage', 'CRM', 'Responsive UI'],
+    codeUrl: 'https://github.com/JordyRetana/ReservaPro_Studio',
+    liveUrl: 'https://jordyretana.github.io/ReservaPro_Studio/',
+    priority: 102,
+    metrics: ['Bookings', 'CRM', 'Revenue']
+  },
+  {
+    id: 106,
+    key: 'negocio-finanzas',
+    category: 'mobile',
+    image: `${base}assets/images/NegocioFinanzas/portfolio-cover.jpg`,
+    tech: ['Kotlin', 'Jetpack Compose', 'Room'],
+    codeUrl: 'https://github.com/JordyRetana/Negocio_Finanzas',
+    liveUrl: '#',
+    priority: 92,
+    metrics: ['Android', 'Finance', 'Offline']
+  },
+  {
     id: 1,
     key: 'tutorias-jr',
     category: 'web',
@@ -10,6 +80,7 @@ export const projects = [
     codeUrl: 'https://github.com/JordyRetana/Tutorias-JR',
     liveUrl: 'https://jordyretana.github.io/Tutorias-JR/',
     featured: true,
+    priority: 100,
     metrics: ['Education', 'Realtime', 'Platform']
   },
   {
@@ -20,6 +91,8 @@ export const projects = [
     tech: ['Python', 'OpenCV', 'MediaPipe'],
     codeUrl: 'https://github.com/JordyRetana/Mano',
     liveUrl: '#',
+    featured: true,
+    priority: 94,
     metrics: ['Vision', 'Tracking', 'Realtime']
   },
   {
@@ -30,6 +103,7 @@ export const projects = [
     tech: ['UI', 'Job Search', 'Profile'],
     codeUrl: 'https://github.com/JordyRetana/CV',
     liveUrl: '#',
+    priority: 64,
     metrics: ['CV', 'Jobs', 'Upcoming'],
     upcoming: true
   },
@@ -41,6 +115,7 @@ export const projects = [
     tech: ['HTML', 'CSS', 'JavaScript'],
     codeUrl: 'https://github.com/JordyRetana/Virtual-Error404',
     liveUrl: '#',
+    priority: 58,
     metrics: ['404', 'Interactive', 'Motion']
   },
   {
@@ -51,6 +126,8 @@ export const projects = [
     tech: ['Canvas', 'Physics', 'JavaScript'],
     codeUrl: 'https://github.com/JordyRetana/Pool',
     liveUrl: 'https://jordyretana.github.io/Pool/',
+    featured: true,
+    priority: 86,
     metrics: ['Physics', 'Aim', 'Particles']
   },
   {
@@ -61,6 +138,7 @@ export const projects = [
     tech: ['JavaScript', 'CSS', 'Date API'],
     codeUrl: 'https://github.com/JordyRetana/Reloj',
     liveUrl: '#',
+    priority: 48,
     metrics: ['Clock', 'Utility', 'UI']
   },
   {
@@ -71,6 +149,7 @@ export const projects = [
     tech: ['Canvas', 'JavaScript', 'Game Logic'],
     codeUrl: 'https://github.com/JordyRetana/Snake',
     liveUrl: 'https://jordyretana.github.io/Snake/',
+    priority: 52,
     metrics: ['Classic', 'Arcade', 'Score']
   },
   {
@@ -81,6 +160,7 @@ export const projects = [
     tech: ['JavaScript', 'Accessibility', 'Sound'],
     codeUrl: 'https://github.com/JordyRetana/Teclado',
     liveUrl: '#',
+    priority: 56,
     metrics: ['Keyboard', 'Interactive', 'UX']
   },
   {
@@ -91,27 +171,30 @@ export const projects = [
     tech: ['Canvas', 'Probability', 'JavaScript'],
     codeUrl: 'https://github.com/JordyRetana/Ruleta',
     liveUrl: 'https://jordyretana.github.io/Ruleta/',
+    priority: 54,
     metrics: ['Casino', 'Math', 'Game']
   },
   {
     id: 10,
     key: 'sc502',
     category: 'web',
-    image: '',
-    tech: ['HTML', 'CSS', 'Algorithms'],
+    image: `${base}assets/images/SC502/portfolio-cover.jpg`,
+    tech: ['PHP', 'MySQL', 'JavaScript', 'HTML/CSS'],
     codeUrl: 'https://github.com/JordyRetana/SC502-1C2025-JordyRetana',
     liveUrl: '#',
-    metrics: ['Academic', 'Algorithms', 'Structure']
+    priority: 88,
+    metrics: ['PHP API', 'Modules', 'MySQL']
   },
   {
     id: 11,
     key: 'cliente-servidor',
-    category: 'web',
-    image: '',
-    tech: ['JavaScript', 'Node.js', 'Sockets'],
+    category: 'backend',
+    image: `${base}assets/images/ClienteServidor/portfolio-cover.jpg`,
+    tech: ['Java', 'JDBC', 'MySQL', 'DAO'],
     codeUrl: 'https://github.com/JordyRetana/Cliente-Servidor',
     liveUrl: '#',
-    metrics: ['Sockets', 'Network', 'Realtime']
+    priority: 90,
+    metrics: ['Sales System', 'DAO', 'Reports']
   },
   {
     id: 12,
@@ -121,6 +204,7 @@ export const projects = [
     tech: ['JavaScript', 'Memory', 'UI'],
     codeUrl: 'https://github.com/JordyRetana/Memoria',
     liveUrl: 'https://jordyretana.github.io/Memoria/',
+    priority: 50,
     metrics: ['Memory', 'Brain', 'Classic']
   },
   {
@@ -131,6 +215,7 @@ export const projects = [
     tech: ['Canvas', 'Sprites', 'Platformer'],
     codeUrl: 'https://github.com/JordyRetana/Kirby',
     liveUrl: 'https://jordyretana.github.io/Kirby/',
+    priority: 68,
     metrics: ['Platform', 'Bosses', 'Arcade']
   }
 ]

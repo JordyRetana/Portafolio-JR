@@ -41,7 +41,7 @@ function FeaturedProjects() {
             return (
               <article className="project-card" key={project.id}>
                 <div className="project-image">
-                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
                   <div className="project-overlay"><span className={`project-badge ${project.badgeType}`}>{t(`${baseKey}.badge`)}</span></div>
                 </div>
                 <div className="project-content">

@@ -1013,3 +1013,28 @@ html[data-theme='light'] .hero-badge {
     width: 100%;
   }
 }
+
+.hero-grid-lines {
+  will-change: background-position;
+}
+
+.hero-particles-layer,
+.hero-floating-card,
+.project-image img {
+  will-change: transform;
+}
+
+.code-window {
+  transform: translateZ(0);
+}
+
+.stat-card:hover,
+.contact-stat:hover,
+.tech-category-card:hover,
+.project-card:hover {
+  transform: translate3d(0, -3px, 0);
+}
+
+.project-card:hover .project-image img {
+  transform: translateZ(0) scale(1.03);
+}

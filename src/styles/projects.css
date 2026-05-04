@@ -443,3 +443,15 @@ html[data-theme='light'] .project-placeholder-content {
     width: 100%;
   }
 }
+
+.projects-page-image img {
+  will-change: transform;
+}
+
+.projects-page-card.compact-card:hover {
+  transform: translate3d(0, -4px, 0);
+}
+
+.projects-page-card:hover .projects-page-image img {
+  transform: translateZ(0) scale(1.04);
+}

@@ -504,3 +504,8 @@ html[data-theme='light'] .skills-support-track {
     font-size: 0.94rem;
   }
 }
+
+.skills-panel:hover,
+.skills-tools-card:hover {
+  transform: translate3d(0, -3px, 0);
+}

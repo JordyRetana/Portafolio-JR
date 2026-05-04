@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../i18n/LanguageContext'
 
 function HomeOverview() {
-  const { language, t } = useLanguage()
+  const { t } = useLanguage()
   const content = t('home_overview')
 
   return (

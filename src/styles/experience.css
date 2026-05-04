@@ -255,3 +255,7 @@
     height: 14px;
   }
 }
+
+.experience-card-shell:hover {
+  transform: translate3d(0, -4px, 0);
+}

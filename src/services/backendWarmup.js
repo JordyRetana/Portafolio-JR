@@ -4,6 +4,14 @@ let warmupPromise = null
 let lastWarmupTime = 0
 const WARMUP_COOLDOWN_MS = 10 * 60 * 1000
 
+function runWhenIdle(callback) {
+  if ('requestIdleCallback' in window) {
+    return window.requestIdleCallback(callback, { timeout: 3000 })
+  }
+
+  return window.setTimeout(callback, 1200)
+}
+
 export async function warmupBackend(force = false) {
   const now = Date.now()
 
@@ -29,6 +37,12 @@ export async function warmupBackend(force = false) {
     })
 
   return warmupPromise
+}
+
+export function scheduleBackendWarmup() {
+  runWhenIdle(() => {
+    warmupBackend()
+  })
 }
 
 export { BACKEND_BASE_URL }
