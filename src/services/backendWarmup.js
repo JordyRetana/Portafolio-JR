@@ -1,5 +1,5 @@
 const BACKEND_BASE_URL =
-  import.meta.env.VITE_BACKEND_BASE_URL || 'https://portafolio-jr-backend.onrender.com'
+  import.meta.env.VITE_BACKEND_BASE_URL || 'https://portafolio-jr.onrender.com'
 
 let warmupPromise = null
 let lastWarmupTime = 0
