@@ -126,6 +126,19 @@
   font-size: 0.88rem;
 }
 
+.portfolio-chat-provider {
+  display: inline-flex;
+  margin-bottom: 0.45rem;
+  padding: 0.18rem 0.46rem;
+  border-radius: 999px;
+  color: #7dd3fc;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(125, 211, 252, 0.16);
+  font-size: 0.66rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .portfolio-chat-message.bot {
   align-self: flex-start;
   border-radius: 1rem 1rem 1rem 0.35rem;

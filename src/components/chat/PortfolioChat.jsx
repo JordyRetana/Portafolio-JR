@@ -4,6 +4,7 @@ import { useLanguage } from '../../i18n/LanguageContext'
 import { projects } from '../../data/projects'
 import { skillCategories, additionalTools } from '../../data/skills'
 import { experienceItems } from '../../data/experience'
+import { sendChatMessage } from '../../services/chatService'
 
 const STORAGE_KEY = 'portfolio-chat-history'
 
@@ -108,6 +109,7 @@ const copy = {
     close: 'Cerrar',
     send: 'Enviar',
     typing: 'Pensando una respuesta...',
+    aiNote: 'IA',
     clear: 'Reiniciar',
     online: 'Online',
     welcome:
@@ -138,6 +140,7 @@ const copy = {
     close: 'Close',
     send: 'Send',
     typing: 'Thinking through an answer...',
+    aiNote: 'AI',
     clear: 'Reset',
     online: 'Online',
     welcome:
@@ -964,15 +967,35 @@ function PortfolioChat() {
     setInput('')
     setIsTyping(true)
 
-    window.setTimeout(() => {
-      const reply = createBotReply(cleanValue, { t, language, translatedProjects })
+    window.setTimeout(async () => {
+      const localReply = createBotReply(cleanValue, { t, language, translatedProjects })
+      let reply = localReply
+
+      try {
+        const aiResponse = await sendChatMessage({
+          message: cleanValue,
+          language
+        })
+
+        if (aiResponse.ok) {
+          reply = {
+            text: aiResponse.answer,
+            actions: localReply.actions || [],
+            provider: aiResponse.provider
+          }
+        }
+      } catch (error) {
+        console.warn('AI chat fallback:', error)
+      }
+
       updateMessages((prev) => [
         ...prev,
         {
           id: crypto.randomUUID(),
           role: 'bot',
           text: reply.text,
-          actions: reply.actions || []
+          actions: reply.actions || [],
+          provider: reply.provider
         }
       ])
       setIsTyping(false)
@@ -1004,6 +1027,9 @@ function PortfolioChat() {
           <div className="portfolio-chat-messages" ref={listRef}>
             {messages.map((message) => (
               <article className={`portfolio-chat-message ${message.role}`} key={message.id}>
+                {message.provider ? (
+                  <span className="portfolio-chat-provider">{copy[language].aiNote}</span>
+                ) : null}
                 <p>{message.text}</p>
                 {message.actions?.length ? (
                   <div className="portfolio-chat-actions">
