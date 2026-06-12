@@ -32,17 +32,29 @@ export async function warmupBackend(force = false) {
     fetch(`${BACKEND_BASE_URL}/api/chat/warmup`, {
       method: 'GET',
       cache: 'no-store'
+    }),
+    fetch(`${BACKEND_BASE_URL}/api/chat`, {
+      method: 'POST',
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Responde solo: ok',
+        language: 'es'
+      })
     })
   ])
     .then((results) => {
       const healthOk = results[0].status === 'fulfilled' && results[0].value.ok
       const chatWarmupOk = results[1].status === 'fulfilled' && results[1].value.ok
+      const chatPingOk = results[2].status === 'fulfilled' && results[2].value.ok
 
-      if (!healthOk && !chatWarmupOk) {
+      if (!healthOk && !chatWarmupOk && !chatPingOk) {
         throw new Error('Warmup failed')
       }
 
-      return { healthOk, chatWarmupOk }
+      return { healthOk, chatWarmupOk, chatPingOk }
     })
     .catch((error) => {
       console.error('Backend warmup error:', error)
