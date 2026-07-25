@@ -1,11 +1,8 @@
-const BACKEND_BASE_URL =
-  import.meta.env.VITE_BACKEND_BASE_URL || 'https://portafolio-jr-backend.onrender.com'
+const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL || ''
 
 let warmupPromise = null
 let lastWarmupTime = 0
-let warmupIntervalId = null
 const WARMUP_COOLDOWN_MS = 10 * 60 * 1000
-const WARMUP_INTERVAL_MS = 4 * 60 * 1000
 
 function runWhenIdle(callback) {
   if ('requestIdleCallback' in window) {
@@ -66,14 +63,8 @@ export async function warmupBackend(force = false) {
 
 export function scheduleBackendWarmup() {
   runWhenIdle(() => {
-    warmupBackend(true)
+    warmupBackend()
   })
-
-  if (!warmupIntervalId) {
-    warmupIntervalId = window.setInterval(() => {
-      warmupBackend(true)
-    }, WARMUP_INTERVAL_MS)
-  }
 }
 
 export { BACKEND_BASE_URL }
